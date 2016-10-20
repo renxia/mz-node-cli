@@ -10,7 +10,7 @@ npm i -g @flyme/mz-node-cli --registry=http://172.16.16.135:7001
 
 ## 使用
 
-首先，需要进入具体的子项目目录(如 `demo`)中。并确保项目目录下：
+首先，需要进入具体的子项目目录(如 `demo`)中。确保项目目录下：
 
 - 存在配置文件 `config/mznode-config.js`
 - 存在 server 启动文件 `build/start-server.bat` (window)
@@ -104,11 +104,12 @@ mznode start node
 - `stylelint` 校验 (css 代码规范)
 - `eslint` 校验 (JavaScript 代码规范)
 - `autoprefixer` 支持 (css 规范不允许写浏览器前缀)
-- css、图片等文件 require 支持
+- css、图片等文件 require/import 支持
 - 代码压缩、雪碧图、文件合并 (根据项目自行配置)
-- es6 编译支持
+- `es6` 编译
 - `LESS` 编译
-- `vue.js` 编译支持
+- `vue.js` 编译
+- `react jsx` 编译
 - more...
 
 更多的编译构建支持，应当在 `project/<demo>/fis-conf.js` 中配置。

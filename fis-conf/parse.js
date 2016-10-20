@@ -31,8 +31,7 @@ fis.match('*.less', {
 // npm install -g fis-parser-es6-babel
 // npm install -g fis-parser-babel-5.x
 // 解析 es6 和 react 文件
-// fis.match('/resources/{js,modules}/**.{es,es6,js,jsx},/resources/lib/**.{es,es6}', {
-fis.match(/\.es6?$/, {
+fis.match('/resources/**.{es,es6,jsx}', {
     rExt: '.js',
     parser: fis.plugin('babel-5.x', {
         //plugins: ["transform-runtime"],
@@ -45,8 +44,8 @@ fis.match(/\.es6?$/, {
     //parser: fis.plugin('es6-babel')
 });
 
-// js 目录 js 文件也 babel 编译
-fis.match('/resources/{js,modules, lib/vuex}/**.js', {
+// app 目录 js 文件也 babel 编译
+fis.match('/resources/{app,js,modules, lib/vuex}/**.js', {
     rExt: '.js',
     parser: fis.plugin('babel-5.x', {
         stage: 0,
