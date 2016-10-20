@@ -5,7 +5,7 @@
 ## 安装
 
 ```bash
-npm i -g @flyme/mz-node-cli @flyme/mznode-command-start
+npm i -g @flyme/mz-node-cli --registry=http://172.16.16.135:7001
 ```
 
 ## 使用
@@ -15,16 +15,28 @@ npm i -g @flyme/mz-node-cli @flyme/mznode-command-start
 - 存在配置文件 `config/mznode-config.js`
 - 存在 server 启动文件 `build/start-server.bat` (window)
 
-启动编译构建：
+### 启动编译构建：
 
 ```bash
-mznode start
+mznode start [build]
 ```
 
-启动 nginx 和 node-server 服务：
+### 启动 nginx 和 node-server 服务：
 
 ```bash
 mznode start server
+```
+
+### 启动 nginx：
+
+```bash
+mznode start nginx
+```
+
+### 启动 node-server 服务：
+
+```bash
+mznode start node
 ```
 
 其他使用命令与 `fis3` 相同，具体参考：[fis3 命令](http://fis.baidu.com/fis3/docs/api/command.html)
