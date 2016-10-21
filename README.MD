@@ -62,7 +62,7 @@ mznode start node
 ├─output_qa             提交至开发环境时的输出目录，不提交至 git
 ├─output_dev            开发时输出目录，不提交至 git
 └─project               项目目录，存放所有子项目
-└─demo                  子项目目录
+   └─demo               子项目目录
        ├─build          快捷构建工具目录(window)
        ├─config         各种配置文件
        │  ├─fis         fis 配置子模块
