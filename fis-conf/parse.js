@@ -31,32 +31,24 @@ fis.match('*.less', {
 // npm install -g fis-parser-babeljs
 // npm install -g fis-parser-babel-5.x
 // 解析 es6 和 react 文件
-// fis.match('/resources/{app,js,modules}/**.{es,es6,js,jsx},/resources/lib/**.{es,es6}', {
-fis.match(/\.es6?$/, {
+var babelConfig = {
     rExt: '.js',
     parser: fis.plugin('babeljs', {
         sourceMaps: true
+        // "presets": ["latest"]
         // "presets": ["es2015", "react", "stage-0"]
+        // plugins: ["transform-runtime"],
+        // blacklist: ['regenerator'],
+        // optional: ["es7.decorators"],
+        // stage: 0,
+        // sourceMaps: true
     })
-    // parser: fis.plugin('babel-5.x', {
-    //     //plugins: ["transform-runtime"],
-    //     //blacklist: ['regenerator'],
-    //     //optional: ["es7.decorators"],
-    //     stage: 0,
-    //     sourceMaps: true
-    // })
-    //parser: fis.plugin('babel-6.x', {})
-    //parser: fis.plugin('es6-babel')
-});
+};
+// fis.match('/resources/{app,js,common,modules}/**.{es,es6,js,jsx},/resources/lib/**.{es,es6}', {
+fis.match(/\.es6?$/, babelConfig);
 
 // js 目录 js 文件也 babel 编译
-fis.match('/resources/{app,js,modules, lib/vuex}/**.js', {
-    rExt: '.js',
-    parser: fis.plugin('babeljs', {
-        sourceMaps: true
-        // "presets": ["es2015", "react", "stage-0"]
-    })
-});
+fis.match('/resources/{app,js,common,modules,lib/vuex}/**.js', babelConfig);
 
 // npm install -g fis-parser-vue
 // 解析 vue 文件
