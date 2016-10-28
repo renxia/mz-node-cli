@@ -12,18 +12,13 @@ fis.set('project.files', [
     'resources/static/**'
 ]);
 
-//fis3-hook-module
-// fis.hook('module', {
-//   mode: 'amd' // 模块化支持 amd 规范，适应 require.js
-// });
-
 // npm install [-g] fis3-hook-amd
 fis.hook('amd', { //amd配置
     globalAsyncAsSync: true, //都转为同步加载
-    baseUrl: 'resources/',
+    baseUrl: '/resources/',
     paths: {
+        modulescommon: 'js/common/', //js common 目录
         // vue: 'lib/vue/1.0.26/vue', //.min',
-        // modulescommon: 'js/common/', //js common 目录
         // jquery: 'lib/jquery/jquery.min',
         // moment: 'lib/moment/moment.min',
         // underscore: 'lib/underscore/underscore',
@@ -58,7 +53,7 @@ fis.hook('node_modules', {
 // npm i -g fis3-preprocessor-js-require-css
 // npm i -g fis3-preprocessor-js-require-file
 // 添加 css 和 image 加载支持
-fis.match('/resources/{js,modules}/**.{js,jsx,ts,tsx,es,es6,vue}', {
+fis.match('/resources/{app,js,modules}/**.{js,jsx,ts,tsx,es,es6,vue}', {
     preprocessor: [
         fis.plugin('js-require-css'),
         fis.plugin('js-require-file', {

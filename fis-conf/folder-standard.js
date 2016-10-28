@@ -38,7 +38,7 @@ fis.match('/node_modules/**.{js,jsx,ts,tsx,es,es6,vue}', {
 "app";
 */
 // 项目文件、第三方库
-fis.match(/resources\/(app|js|lib|modules|node_modules)\/(.*)\.(js|es|es6|vue|jsx)$/i, {
+fis.match(/resources\/(app|js|common|lib|modules|node_modules)\/(.*)\.(js|es|es6|vue|jsx)$/i, {
     isMod: true,
     release: '$&',
     moduleId: '$1/$2' // moduleId 简写，去掉 resources 前缀
