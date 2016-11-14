@@ -86,30 +86,6 @@ fis.match(/resources\/(app|js)\/.*\.(js|es|es6|es|ts|vue)$/i, {
 });
 
 /**************************************
- * csslint 校验 css/less
- ***************************************/
-// 使用 csslint 校验代码
-// npm i -g csslint
-// npm install -g fis3-lint-csslint
-// 规则参考：https://github.com/CSSLint/csslint/wiki/Rules
-// var csslintConf = {
-//     ignoreFiles: ['*.min.css'],
-//     rules: {
-//         "rules": {
-//           "known-properties": 2,      //未知属性值
-//           "empty-rules": 1,           //空规则
-//           "duplicate-properties": 1, //重复属性
-//           "overqualified": 0,        //允许元素标签的优先级，如 div.test
-//           "adjoining-classes": 0,    //允许 .foo.bar 格式的连写
-//           "important": 0             //允许 !important
-//         }
-//     }
-// };
-// fis.match('/resources/{app,common}/**/*.{css,less}', {
-//     lint: fis.plugin('csslint', csslintConf)
-// });
-
-/**************************************
  * stylelint 校验 css/less/scss
  ***************************************/
 // 使用 stylelint 校验代码
@@ -155,6 +131,11 @@ var stylelintConf = {
         }
     }
 };
-fis.match('/resources/{app,js,common}/**.{css,less,scss}', {
+
+fis.match('/resources/{app,js}/**.{css,less,scss}', {
     lint: fis.plugin('stylelint_d', stylelintConf)
+});
+
+fis.match('**.min.css', {
+    lint: false
 });
