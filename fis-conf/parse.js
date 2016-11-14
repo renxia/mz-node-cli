@@ -28,22 +28,21 @@ fis.match('*.less', {
     postprocessor: fis.plugin('autoprefixer')
 });*/
 
-// npm install -g fis-parser-babeljs
-// npm install -g fis-parser-babel-5.x
+// npm install -g fis-parser-babel-latest
 // 解析 es6 和 react 文件
 const babelConfig = {
     rExt: '.js',
-    parser: fis.plugin('babeljs', {
+    parser: fis.plugin('babel-latest', {
         sourceMaps: true
-        // "presets": ["latest"]
-        // "presets": ["es2015", "react", "stage-0"]
     })
 };
-// fis.match('/resources/{app,js,common,modules}/**.{es,es6,js,jsx},/resources/lib/**.{es,es6}', {
 fis.match(/\.es6?$/, babelConfig);
 
-// js 目录 js 文件也 babel 编译
+// js 文件也 babel 编译，但排除 .min.js 后缀的文件
 fis.match('/resources/{app,js,common,modules, lib/vuex}/**.js', babelConfig);
+fis.match('**.min.js', {
+    parser: false
+});
 
 // npm install -g fis-parser-vue
 // 解析 vue 文件
