@@ -126,7 +126,7 @@ var stylelintConf = {
             "selector-list-comma-newline-after": null,
             "selector-no-id": true,
             "string-quotes": null, // 'single'
-            // "no-missing-end-of-source-newline": null,
+            "no-missing-end-of-source-newline": null,
             "value-no-vendor-prefix": true
         }
     }
