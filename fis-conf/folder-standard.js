@@ -1,52 +1,53 @@
 /**************************************
  * mod 文件属性，基本的目录规范
  ***************************************/
-//static 静态目录内不作依赖分析
+// static 静态目录内不作依赖分析
 fis.match('/resources/static/**', {
     skipDepsAnalysis: true, //hook-amd
     ignoreDependencies: true //hook-commonjs
 });
 
-//select2 不作依赖分析
+// select2 不作依赖分析
 fis.match('{select2/**', {
     ignoreDependencies: true //hook-commonjs
 });
 
-//自动加载同名文件
-fis.match('/resources/**.{js,es,es6,vue,css}', {
+// 自动加载同名文件
+fis.match('/resources/**.{js,es,es6,vue,css,jsx,ts,tsx}', {
     useSameNameRequire: true,
     skipBrowserify: true // 默认全部跳过浏览器的 shim
 });
 
 // node_modules 目录下的第三方库，为模块化引用
-fis.match('/node_modules/**.{js,jsx,ts,tsx,es,es6,vue}', {
+fis.match('/node_modules/**.{js,es,es6,vue,jsx,ts,tsx}', {
     isMod: true,
     skipBrowserify: false
 });
 
+// 浏览器的 shim，处理 process、buffer
+fis.match('**.{es,es6,vue,jsx,ts,tsx}', {
+    skipBrowserify: false
+});
+
+fis.match('/resources/app/**.js', {
+    skipBrowserify: false
+});
+
+fis.match('**.min.{js,es,es6,vue,css}', {
+    skipBrowserify: true
+});
 /**************************************
 * release 过滤，目录规范
 ***************************************/
 //------------------
 //resources 目录
 //------------------
-//开发环境构建和外网构建的区分，外网环境会指定具体目录，详细见 fis-build.js
-//按需加载方式无需配置项目文件的 release 了
-/*fis.match('resources/app/**', {
-    release: false
-});
-"app";
-*/
+
 // 项目文件、第三方库
-fis.match(/resources\/(app|js|common|lib|modules|node_modules)\/(.*)\.(js|es|es6|vue|jsx)$/i, {
+fis.match(/resources\/(app|js|common|lib|modules|node_modules)\/(.*)\.(js|es|es6|vue|jsx|ts|tsx)$/i, {
     isMod: true,
     release: '$&',
     moduleId: '$1/$2' // moduleId 简写，去掉 resources 前缀
-});
-
-//node_modules 目录内容，发布到 resources/node_modules 下
-fis.match('/node_modules/**', {
-    release: '/resources/$0'
 });
 
 //过滤 .md、.json、.bak 等文件
@@ -82,14 +83,13 @@ fis.match('metronic/{global/img/flags,sass}/**', {
 //node-server 目录
 //------------------
 fis.match('node-server/(**)', {
-    skipDepsAnalysis: true, //hook-amd
-    ignoreDependencies: true, //hook-commonjs
+    skipDepsAnalysis: true,     // hook-amd
+    ignoreDependencies: true,   // hook-commonjs
     useHash: false,
-    useCompile: false, //默认不作编译分析
+    useCompile: false,          //默认不作编译分析
     release: '/node-server/${artifactId}/$1', // 线上目录发布规范兼容
 });
 
-// 开发环境构建和外网构建的区分，外网环境会指定具体目录，详细见fis-build.js
 // view 下的模板需要作编译处理，但默认不 release
 fis.match('node-server/view/**', {
     skipDepsAnalysis: false,
@@ -98,17 +98,18 @@ fis.match('node-server/view/**', {
     release: false
 });
 
+// view/main 为公共模板目录，始终输出
 fis.match('node-server/(view/main/**)', {
-    release: '/node-server/${artifactId}/$1', // 线上目录发布规范兼容
+    release: '/node-server/${artifactId}/$1',
 });
 
 //------------------
 // 线上发布目录规范兼容
 //------------------
-fis.match('/resources/orion/(**)', {
+fis.match('/resources/(**)', {
     release: '/resources/${artifactId}/$1',
 });
 
-fis.match('/node_modules/**', {
-    release: '/resources/${artifactId}/$0'
+fis.match('/node_modules/(**)', {
+    release: '/resources/${artifactId}/npm/$1'
 });
