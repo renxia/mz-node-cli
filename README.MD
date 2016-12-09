@@ -1,6 +1,6 @@
 # mz-node-cli
 
-基于 fis3 的 node 项目命令行工具，为 flyme 大数据平台前端 node 项目规范定制。
+基于 fis3 的 node 项目命令行工具，为 Flyme 大数据平台前端 fed-node 项目规范定制。
 
 ## 安装
 
@@ -18,25 +18,25 @@ npm i -g @flyme/mz-node-cli --registry=http://172.16.16.135:7001
 ### 启动编译构建：
 
 ```bash
-mznode start [build]
+mznode start --build
 ```
 
 ### 启动 nginx 和 node-server 服务：
 
 ```bash
-mznode start server
+mznode start --server
 ```
 
 ### 启动 nginx：
 
 ```bash
-mznode start nginx
+mznode start --nginx
 ```
 
 ### 启动 node-server 服务：
 
 ```bash
-mznode start node
+mznode start --node
 ```
 
 其他使用命令与 `fis3` 相同，具体参考：[fis3 命令](http://fis.baidu.com/fis3/docs/api/command.html)
@@ -113,3 +113,44 @@ mznode start node
 - more...
 
 更多的编译构建支持，应当在 `project/<demo>/fis-conf.js` 中配置。
+
+## USEAGE HELP
+
+### mznode start -h
+
+```
+ Usage: mznode start <options>
+
+ Options:
+
+   --server     start nginx and node-server.
+   --nginx      start nginx.
+   --node       start node-server.
+   --build      start build.
+```
+
+### mznode -h
+
+除了 `start` 命令之外，其它命令与 fis3 相同。
+
+```
+ Usage: mznode <command>
+
+ Commands:
+
+   init                           scaffold with specifed template.
+   install                        install components
+   release [media name]           build and deploy your project
+   server <command> [options]     launch a server
+   inspect [media name]           inspect the result of fis.match
+   start <options>                mznode start command.
+
+ Options:
+
+   -h, --help                print this help message
+   -v, --version             print product version and exit
+   -r, --root <path>         specify project root
+   -f, --file <filename>     specify the file path of `fis-conf.js`
+   --no-color                disable colored output
+   --verbose                 enable verbose mode
+```
