@@ -16,11 +16,12 @@ fis.media('prod').match('::package', {
         '/resources/pkg/js/modules-lib.js': ['/node_modules/**.{js,es,es6,jsx,vue}'],
         // 公用组件
         '/resources/pkg/js/common.js': [
-            '/resources/{js/common,modules}/**.{js,es,es6,jsx,vue}'
-        ],
-        // highchart 相关组件
-        '/resources/pkg/js/create-highchart.js': [
-            'resources/resources/{lib/highcharts/highcharts.min,lib/highcharts/exporting,js/common/create-chart}.js'
+            '/resources/{common,modules}/**.{js,es,es6,jsx,vue}'
         ]
     })
+});
+
+// app 内文件作 hash 处理
+fis.media('prod').match('/resources/{pkg,app,js}/**.{js,es,vue,es6,ts,tsx,jsx}', {
+    useHash: true
 });
