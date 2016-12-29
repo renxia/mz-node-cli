@@ -29,11 +29,11 @@ fis.match('**.{es,es6,vue,jsx,ts,tsx}', {
     skipBrowserify: false
 });
 
-fis.match('/resources/app/**.js', {
+fis.match('/resources/app/**', {
     skipBrowserify: false
 });
 
-fis.match('**.min.{js,es,es6,vue,css}', {
+fis.match('**.min.{js,css}', {
     skipBrowserify: true
 });
 /**************************************
