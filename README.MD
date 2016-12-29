@@ -41,6 +41,26 @@ mznode start --node
 
 其他使用命令与 `fis3` 相同，具体参考：[fis3 命令](http://fis.baidu.com/fis3/docs/api/command.html)
 
+## mznode 配置文件说明
+
+配置文件位置为： `config/mznode-config.js`。各配置参数说明参考：
+
+```js
+var config = {
+    // 项目类型： 
+    // 1 单模块项目结构。构建时无需选择子模块；
+    // 2 多模块分别独立的项目结构。子模块可单独打包为一个独立的项目。默认为 2
+    projectType: 1,
+    // 相对于执行路径的位置： process.cwd()
+    path: {
+        ROOTDIR: '../../',          // 项目根目录相对路径
+        POMXML: './build/pom.xml',  // jenkins 构建配置文件位置
+        NGINXDIR: '../../nginx/',   // nginx 所在目录，window 下有效
+        NGINXCONF: './config/nginx/nginx.conf', // nginx 配置文件位置。具体项目的配置文件，应当写到 vhost 目录下
+    }
+}
+```
+
 ## 目录规范
 
 ```xml
