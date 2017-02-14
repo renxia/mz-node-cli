@@ -7,7 +7,7 @@
 // npm i -g eslint-plugin-react
 // npm install -g fis-lint-eslint
 // 参考：http://smocean.github.io/docs/rules/
-fis.match(/resources\/(app|js)\/.*\.(js|es|es6|es|ts|vue)$/i, {
+fis.match(/resources\/(app|comm|js)\/.*\.(js|es|es6|es|ts|vue)$/i, {
     lint: fis.plugin('eslint', {
         //ignored some files
         //ignored : 'static/libs/**.js',
@@ -132,7 +132,7 @@ var stylelintConf = {
     }
 };
 
-fis.match('/resources/{app,js}/**.{css,less,scss}', {
+fis.match('/resources/{app,comm,js}/**.{css,less,scss}', {
     lint: fis.plugin('stylelint_d', stylelintConf)
 });
 

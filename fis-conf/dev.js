@@ -10,6 +10,7 @@ fis.media('dev').match('::package', {
                 '/resources/js/**',
                 '/resources/app/**',
                 '/resources/lib/**',
+                '/resources/comm/**',
                 '/resources/common/**'
             ],
             js: '/resources/pkg/js/common_${hash}.js',

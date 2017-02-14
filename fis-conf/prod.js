@@ -28,7 +28,7 @@ fis.media('prod')
         isMod: false
     }).match('/resources/static/require/**', { // require.js 需要 md5
         useHash: true
-    }).match('/resources/{pkg,app,js}/**.{js,es,vue,es6,ts,tsx,jsx}', {
+    }).match('/resources/{pkg,app,comm,common,js}/**.{js,es,vue,es6,ts,tsx,jsx}', {
         useHash: true
     }).match('/resources/{static,lib}/tongji/**', { // 统计代码需要压缩
         useHash: false,

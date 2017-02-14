@@ -29,7 +29,7 @@ fis.match('**.{es,es6,vue,jsx,ts,tsx}', {
     skipBrowserify: false
 });
 
-fis.match('/resources/app/**', {
+fis.match('/resources/{app,comm,common}/**', {
     skipBrowserify: false
 });
 
@@ -44,7 +44,7 @@ fis.match('**.min.{js,css}', {
 //------------------
 
 // 项目文件、第三方库
-fis.match(/resources\/(app|js|common|lib|modules|node_modules)\/(.*)\.(js|es|es6|vue|jsx|ts|tsx)$/i, {
+fis.match(/resources\/(app|js|comm|common|lib|modules|node_modules)\/(.*)\.(js|es|es6|vue|jsx|ts|tsx)$/i, {
     isMod: true,
     release: '$&',
     moduleId: '$1/$2' // moduleId 简写，去掉 resources 前缀

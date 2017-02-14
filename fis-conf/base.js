@@ -53,7 +53,7 @@ fis.hook('node_modules', {
 // npm i -g fis3-preprocessor-js-require-css
 // npm i -g fis3-preprocessor-js-require-file
 // 添加 css 和 image 加载支持
-fis.match('/resources/{app,js,modules}/**.{js,jsx,ts,tsx,es,es6,vue}', {
+fis.match('/resources/{app,comm,common,js,modules}/**.{js,jsx,ts,tsx,es,es6,vue}', {
     preprocessor: [
         fis.plugin('js-require-css'),
         fis.plugin('js-require-file', {

@@ -39,7 +39,7 @@ const babelConfig = {
 fis.match(/\.es6?$/, babelConfig);
 
 // js 文件也 babel 编译，但排除 .min.js 后缀的文件
-fis.match('/resources/{app,js,common,modules, lib/vuex}/**.js', babelConfig);
+fis.match('/resources/{app,js,comm,common,modules, lib/vuex}/**.js', babelConfig);
 fis.match('**.min.js', {
     parser: false
 });
