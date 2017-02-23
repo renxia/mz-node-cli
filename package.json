@@ -1,6 +1,6 @@
 {
   "name": "@flyme/mz-node-cli",
-  "version": "1.1.10",
+  "version": "1.1.11",
   "description": "基于 fis3 的 node 项目命令行工具，为 flyme 大数据平台前端 node 项目规范定制",
   "main": "index.js",
   "bin": {

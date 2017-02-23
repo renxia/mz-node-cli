@@ -67,7 +67,7 @@ fis.match(/resources\/(app|comm|js)\/.*\.(js|es|es6|es|ts|vue)$/i, {
             "no-undef": 2, //不允许使用未申明变量
             "no-underscore-dangle": 0, //禁止标识符中有悬空下划线。关闭
             "no-unused-expressions": [1, { allowShortCircuit: true }], // 禁止在语句的位置使用表达式，但允许a && a()
-            "no-unused-vars": 2, //变量定义后未使用
+            "no-unused-vars": [2, { "vars": "all", "args": "none" }],  //变量定义后未使用
             "no-use-before-define": 1, //不允许在变量定义之前使用它们
             "quotes": [0, "single", "avoid-escape"] //使用单引号，除非为了避免转义
         },
