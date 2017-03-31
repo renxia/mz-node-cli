@@ -1,6 +1,6 @@
 # mz-node-cli
 
-基于 fis3 的 node 项目命令行工具，为 Flyme 大数据平台前端 fed-node 项目规范定制。
+基于 fis3 的 node 项目命令行工具，为 Flyme 大数据平台前端项目规范定制。
 
 ## 安装
 
