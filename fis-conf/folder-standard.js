@@ -18,12 +18,6 @@ fis.match('/resources/**.{js,es,es6,vue,css,jsx,ts,tsx}', {
     skipBrowserify: true // 默认全部跳过浏览器的 shim
 });
 
-// node_modules 目录下的第三方库，为模块化引用
-fis.match('/node_modules/**.{js,es,es6,vue,jsx,ts,tsx}', {
-    isMod: true,
-    skipBrowserify: false
-});
-
 // 浏览器的 shim，处理 process、buffer
 fis.match('**.{es,es6,vue,jsx,ts,tsx}', {
     skipBrowserify: false
@@ -33,7 +27,7 @@ fis.match('/resources/{app,comm,common}/**', {
     skipBrowserify: false
 });
 
-fis.match('**.min.{js,css}', {
+fis.match('**.min.{js,es,es6,vue,css}', {
     skipBrowserify: true
 });
 /**************************************
@@ -43,11 +37,39 @@ fis.match('**.min.{js,css}', {
 //resources 目录
 //------------------
 
+// moduleId 计算方法
+const moduleIdList = [];
+let fileCount = 0;
+function fnCalcMId(map, path) {
+    let mId = fis.util.md5(path, 3);
+
+    if (moduleIdList.indexOf(mId) > -1) {
+        mId = fis.util.md5(path, 5);
+    }
+
+    moduleIdList.push(mId);
+
+    if (process.env.list_mod_file === '1') {
+        console.log(++fileCount, ' - ', path);
+        // fis.log.info(++fileCount, ' - ', path);
+    }
+
+    return mId;
+}
+
 // 项目文件、第三方库
-fis.match(/resources\/(app|js|comm|common|lib|modules|node_modules)\/(.*)\.(js|es|es6|vue|jsx|ts|tsx)$/i, {
+fis.match(/resources\/(app|js|common|comm|lib|modules)\/(.*)\.(js|es|es6|vue|jsx|ts|tsx)$/i, {
     isMod: true,
     release: '$&',
-    moduleId: '$1/$2' // moduleId 简写，去掉 resources 前缀
+    // moduleId 简写
+    moduleId: fnCalcMId
+});
+
+// node_modules 目录下的第三方库，为模块化引用
+fis.match('/node_modules/**.{js,es,es6,vue,jsx,ts,tsx}', {
+    isMod: true,
+    skipBrowserify: false,
+    moduleId: fnCalcMId
 });
 
 //过滤 .md、.json、.bak 等文件
@@ -72,11 +94,6 @@ fis.match(/fonts\/(.*)/i, {
 fis.match(/resources\/(css|images)\/(.*)/i, {
     isMod: false,
     release: '$&'
-});
-
-//metronic 主题，部分文件过滤
-fis.match('metronic/{global/img/flags,sass}/**', {
-    release: false
 });
 
 //------------------
@@ -112,4 +129,13 @@ fis.match('/resources/(**)', {
 
 fis.match('/node_modules/(**)', {
     release: '/resources/${artifactId}/npm/$1'
+});
+
+// -----------------
+// release 过滤
+// -----------------
+
+//metronic 主题，部分文件过滤
+fis.match('metronic/{global/img/flags,sass}/**', {
+    release: false
 });
