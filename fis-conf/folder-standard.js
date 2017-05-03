@@ -62,14 +62,14 @@ fis.match(/resources\/(app|js|common|comm|lib|modules)\/(.*)\.(js|es|es6|vue|jsx
     isMod: true,
     release: '$&',
     // moduleId 简写
-    moduleId: fnCalcMId
+    moduleId: process.env.NODE_ENV === 'production' ? fnCalcMId : '$1/$2'
 });
 
 // node_modules 目录下的第三方库，为模块化引用
-fis.match('/node_modules/**.{js,es,es6,vue,jsx,ts,tsx}', {
+fis.match('/node_modules/(**).{js,es,es6,vue,jsx,ts,tsx}', {
     isMod: true,
     skipBrowserify: false,
-    moduleId: fnCalcMId
+    moduleId: process.env.NODE_ENV === 'production' ? fnCalcMId : 'npm/$1'
 });
 
 //过滤 .md、.json、.bak 等文件
