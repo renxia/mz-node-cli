@@ -20,7 +20,7 @@ fis.media('prod')
             optimizer: false
         })*/
     //资源文件添加 hash
-    .match('/{resources,node_modules}/**.{jpg,png,gif,bmp,jpeg}', {
+    .match('/{resources,node_modules}/**.{jpg,png,gif,bmp,jpeg,webp}', {
         useHash: true
     }).match('/resources/static/**', { // static 目录不作 md5 处理
         useHash: false,
@@ -30,9 +30,6 @@ fis.media('prod')
         useHash: true
     }).match('/resources/{pkg,app,comm,common,js}/**.{js,es,vue,es6,ts,tsx,jsx}', {
         useHash: true
-    }).match('/resources/{static,lib}/tongji/**', { // 统计代码需要压缩
-        useHash: false,
-        isMod: false
     });
 
 // 发布时，不 release demo
