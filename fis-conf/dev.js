@@ -13,9 +13,9 @@ fis.media('dev').match('::package', {
                 '/resources/comm/**',
                 '/resources/common/**'
             ],
-            js: '/resources/pkg/js/common_${hash}.js',
-            css: '/resources/pkg/css/common_${hash}.css'
+            js: '/resources/pkg/js/mznode_${hash}.js',
+            css: '/resources/pkg/css/mznode_${hash}.css'
         },
-        resoucemap: '/resources/pkg/app.html_map.js'
+        resoucemap: '/resources/pkg/${hash}_map.js'
     })
 });
