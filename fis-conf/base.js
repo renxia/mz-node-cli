@@ -63,9 +63,9 @@ fis.match('/resources/{app,comm,common,js,modules}/**.{js,jsx,ts,tsx,es,es6,vue}
 });
 
 // 启用 fis-spriter-csssprites 插件
-fis.match('::package', {
-  spriter: fis.plugin('csssprites')
-});
+// fis.match('::package', {
+//   spriter: fis.plugin('csssprites')
+// });
 
 // NODE_ENV
 if ('prod' === fis.project.currentMedia()) {
