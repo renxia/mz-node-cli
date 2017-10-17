@@ -28,7 +28,7 @@ fis.media('prod')
         isMod: false
     }).match('/resources/static/require/**', { // require.js 需要 md5
         useHash: true
-    }).match('/resources/{pkg,app,comm,common,js}/**.{js,es,vue,es6,ts,tsx,jsx}', {
+    }).match('/resources/{app,comm,common,js}/**.{js,es,vue,es6,ts,tsx,jsx}', {
         useHash: true
     }).match('::package', {
         postpackager: fis.plugin('loader', {
@@ -39,7 +39,7 @@ fis.media('prod')
                 js: '/resources/pkg/js/mznode_${hash}.js',
                 css: '/resources/pkg/css/mznode_${hash}.css'
             },
-            resoucemap: '/resources/pkg/${hash}_map.js'
+            resoucemap: '/resources/pkg/map_${hash}.js'
         })
     });
 

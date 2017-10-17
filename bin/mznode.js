@@ -24,6 +24,9 @@ function initFis(env) {
         fis = require(env.modulePath);
     }
 
+    // 挂载扩展的工具类
+    fis.mznodeUtil = require('../lib/utils');
+
     //commands help 列表
     fis.set('modules.commands', fis.get('modules.commands').concat(['start']));
 

@@ -2,11 +2,11 @@
  * mz-node 通用 cli
  */
 
-var utils = require('./lib/utils');
-var fis = module.exports = require('fis3');
+const utils = require('./lib/utils');
+const fis = module.exports = require('fis3');
 
-var projectName = utils.project.getProjectName();
-var artifactId = process.env.ARTIFACTID || projectName;
+const projectName = utils.project.getProjectName();
+const artifactId = process.env.ARTIFACTID || projectName;
 
 fis.require.prefixes.unshift('mznode');
 fis.cli.name = 'mznode';
@@ -70,3 +70,12 @@ fis.match('/node_modules/**', {
 //         fis.plugin('local-deliver') //最后一个插件必须为 local-deliver
 //     ]
 // });
+
+// window 下开发模式时为监听状态，需要等到 deploy:end 后才能继续启动 server
+fis.once('deploy:end', function() {
+    const mznodeCfg = utils.getMznodeCfg();
+
+    if (utils.isWin && process.env.NODE_ENV ==='development' && mznodeCfg.autoStartServer) {
+        utils.startServerBat();
+    }
+});

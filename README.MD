@@ -46,17 +46,19 @@ mznode start --node
 配置文件位置为： `config/mznode-config.js`。各配置参数说明参考：
 
 ```js
-var config = {
+module.exports = {
     // 项目类型： 
     // 1 单模块项目结构。构建时无需选择子模块；
     // 2 多模块分别独立的项目结构。子模块可单独打包为一个独立的项目。默认为 2
     projectType: 1,
+    // 开发模式下，构建完成之后是否立即启动 server（默认为 false。设为 true 时，修改了 fis-conf.js 需要手动关闭）
+    autoStartServer: true,
     // 相对于执行路径的位置： process.cwd()
     path: {
         ROOTDIR: '../../',          // 项目根目录相对路径
         POMXML: './build/pom.xml',  // jenkins 构建配置文件位置
         NGINXDIR: '../../nginx/',   // nginx 所在目录，window 下有效
-        NGINXCONF: './config/nginx/nginx.conf', // nginx 配置文件位置。具体项目的配置文件，应当写到 vhost 目录下
+        NGINXCONF: './config/nginx/nginx.conf', // nginx 配置文件位置。具体项目的配置文件，应当写到 ./config/nginx/vhost 目录下
     }
 }
 ```
@@ -68,7 +70,7 @@ var config = {
 ├─docs          通用公共文档目录
 ├─nginx         nginx 服务器目录
 │  ├─conf
-│  │  ├─vhost           配置文件，这里不存放具体项目配置，应写在项目内部
+│  │  ├─vhost           存放具体项目的 nginx 配置，不会提交至 GIT
 │  │  └─vhost-sample    配置文件示例
 │  │      └─cert        https 证书
 │  └─logs               nginx 日志，启动 nginx 出错时应该查看该目录

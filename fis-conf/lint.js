@@ -72,7 +72,7 @@ fis.match(/resources\/(app|js|comm)\/.*\.(js|es|es6|es|ts|vue)$/i, {
             "dot-notation": 2,                                         //尽可能的使用点符号
             "no-console": 0,                                           //不允许存在 console。关闭
             "no-empty": 1,                                             //空的代码块
-            "no-multi-spaces": [1, { "ignoreEOLComments": true }],     //不允许多个空格
+            // "no-multi-spaces": [1, { "ignoreEOLComments": true }],     //不允许多个空格
             "no-self-compare": 1,                                      //禁止自身比较
             "no-shadow": 1,                                            //不允许声明在外层作用域下已声明过的变量
             "no-undef": 2,                                             //不允许使用未申明变量
@@ -84,10 +84,6 @@ fis.match(/resources\/(app|js|comm)\/.*\.(js|es|es6|es|ts|vue)$/i, {
         },
         "extends": "eslint:recommended",
         // "extends": ["airbnb"], //新项目最好遵从 airbnb 规范
-        "ecmaFeatures": {
-            "jsx": true,
-            "experimentalObjectRestSpread": true
-        },
         "plugins": [
             "html",
             "vue",

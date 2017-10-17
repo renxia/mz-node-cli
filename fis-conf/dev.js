@@ -16,6 +16,6 @@ fis.media('dev').match('::package', {
             js: '/resources/pkg/js/mznode_${hash}.js',
             css: '/resources/pkg/css/mznode_${hash}.css'
         },
-        resoucemap: '/resources/pkg/${hash}_map.js'
+        resoucemap: '/resources/pkg/map_${hash}.js'
     })
 });

@@ -22,6 +22,6 @@
 // });
 
 // app 内文件作 hash 处理
-fis.media('prod').match('/resources/{pkg,app,js,common}/**.{js,es,vue,es6,ts,tsx,jsx}', {
+fis.media('prod').match('/resources/{app,js,common,comm}/**.{js,es,vue,es6,ts,tsx,jsx}', {
     useHash: true
 });

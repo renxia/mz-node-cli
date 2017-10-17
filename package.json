@@ -1,6 +1,6 @@
 {
   "name": "@flyme/mz-node-cli",
-  "version": "1.1.18",
+  "version": "1.1.19",
   "description": "基于 fis3 的 node 项目命令行工具，为 Flyme 大数据平台前端项目规范定制",
   "main": "index.js",
   "bin": {
@@ -16,7 +16,7 @@
     "fis-lint-eslint": "*",
     "fis-parser-babel-latest": "^2.0.0",
     "fis-parser-less": "*",
-    "fis3": "^3.4.24",
+    "fis3": "^3.4.36",
     "fis3-hook-amd": "*",
     "fis3-hook-commonjs": "*",
     "fis3-hook-node_modules": "*",
@@ -28,7 +28,7 @@
     "fis3-preprocessor-js-require-file": "*",
     "liftoff": "^2.3.0",
     "minimist": "^1.2.0",
-    "mznode-command-start": "^1.0.6"
+    "mznode-command-start": "^1.0.7"
   },
   "devDependencies": {
     "babel-eslint": ">=6.1.2",
