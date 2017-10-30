@@ -7,6 +7,8 @@
 //     packager: fis.plugin('map', {
 //         // 是否输出路径信息,默认为 true
 //         useTrack: false,
+//         // 合并后开启 SourceMap 功能
+//         useSourceMap : true,
 //         // lib 目录第三方插件
 //         '/resources/pkg/js/plugins-lib.js': [
 //             '/resources/lib/**.{js,es,es6,jsx,vue}',

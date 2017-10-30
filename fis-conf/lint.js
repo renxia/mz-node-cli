@@ -161,7 +161,7 @@ var stylelintConf = {
         }
     }
 };
-fis.match('/resources/{app,js}/**.{css,less,scss}', {
+fis.match('/resources/{app,comm,js}/**.{css,less,scss}', {
     lint: fis.plugin('stylelint_d', stylelintConf)
 });
 
