@@ -71,11 +71,17 @@ fis.match('/node_modules/**', {
 //     ]
 // });
 
+
 // window 下开发模式时为监听状态，需要等到 deploy:end 后才能继续启动 server
 fis.once('deploy:end', function() {
+    const isDev = fis.project.currentMedia() ==='dev';
     const mznodeCfg = utils.getMznodeCfg(false);
 
-    if (utils.isWin && process.env.NODE_ENV ==='development' && mznodeCfg && mznodeCfg.autoStartServer) {
+    if (!isDev) {
+        process.env.NODE_ENV = 'production';
+    }
+
+    if (utils.isWin && isDev && mznodeCfg && mznodeCfg.autoStartServer) {
         utils.startServerBat();
     }
 });
