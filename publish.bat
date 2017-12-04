@@ -1,2 +1,2 @@
-cnpm publish --registry=http://172.16.16.135:7001
+cnpm publish --registry=http://registry.cnpm.meizu.com
 pause

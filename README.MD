@@ -5,7 +5,7 @@
 ## 安装
 
 ```bash
-npm i -g @flyme/mz-node-cli --registry=http://172.16.16.135:7001
+npm i -g @flyme/mz-node-cli --registry=http://registry.cnpm.meizu.com
 ```
 
 ## 使用
