@@ -1,11 +1,11 @@
 /**************************************
 * 文件解析、加载
 ***************************************/
-// npm install -g fis-parser-less
+// npm install -g fis-parser-less-2.x
 // npm install -g fis3-postprocessor-autoprefixer
 // 解析 less
 fis.match('*.less', {
-    parser: fis.plugin('less'),
+    parser: fis.plugin('less-2.x'),
     postprocessor : fis.plugin("autoprefixer", {
         "browsers": ['Firefox >= 36', 'Safari >= 8', 'Explorer >= 9', 'Chrome >= 41', "ChromeAndroid >= 4.0"],
         "flexboxfixer": true,

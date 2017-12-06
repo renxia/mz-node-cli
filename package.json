@@ -15,7 +15,7 @@
     "console-log-colors": "0.0.2",
     "fis-lint-eslint": "*",
     "fis-parser-babel-latest": "^2.0.0",
-    "fis-parser-less": "*",
+    "fis-parser-less-2.x": "*",
     "fis3": "^3.4.36",
     "fis3-hook-amd": "*",
     "fis3-hook-commonjs": "*",
