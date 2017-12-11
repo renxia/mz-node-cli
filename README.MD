@@ -4,6 +4,8 @@
 
 ## 安装
 
+[![mz-node-cli](https://nodei.co/npm/mz-node-cli.png)](https://npmjs.org/package/mz-node-cli)
+
 ```bash
 npm i -g @flyme/mz-node-cli --registry=http://registry.cnpm.meizu.com
 ```
